@@ -1003,9 +1003,17 @@ function ServicePicker({ value, onChange }) {
 }
 
 // ─── 문의 섹션 ─────────────────────────────────────────
+function formatPhone(val) {
+  const digits = val.replace(/\D/g, "").slice(0, 11);
+  if (digits.length < 4) return digits;
+  if (digits.length < 8) return digits.slice(0, 3) + "-" + digits.slice(3);
+  return digits.slice(0, 3) + "-" + digits.slice(3, 7) + "-" + digits.slice(7);
+}
+
 function ContactSection() {
   const [status, setStatus] = useState("idle");
   const [service, setService] = useState("네이버 마케팅");
+  const [phone, setPhone] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -1028,6 +1036,7 @@ function ContactSection() {
       setStatus("ok");
       e.target.reset();
       setService("네이버 마케팅");
+      setPhone("");
     } catch {
       setStatus("error");
     }
@@ -1061,11 +1070,19 @@ function ContactSection() {
               </label>
               <label className="field">
                 <span>연락처</span>
-                <input name="phone" type="tel" required placeholder="010-0000-0000" />
+                <input
+                  name="phone" type="tel" required placeholder="010-0000-0000"
+                  value={phone}
+                  onChange={(e) => setPhone(formatPhone(e.target.value))}
+                />
               </label>
               <label className="field">
                 <span>이메일</span>
-                <input name="email" type="email" placeholder="name@example.com" />
+                <input
+                  name="email" type="email" placeholder="name@example.com"
+                  pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                  title="올바른 이메일 형식을 입력해주세요 (예: name@example.com)"
+                />
               </label>
               <div className="field field--full">
                 <span>관심 서비스</span>
