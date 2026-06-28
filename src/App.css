@@ -1355,7 +1355,7 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
   background: radial-gradient(circle, rgba(97,135,100,0.18) 0%, transparent 70%);
   filter: blur(50px); pointer-events: none;
 }
-.contact__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; position: relative; z-index: 1; }
+.contact__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
 .contact .eyebrow { color: var(--light-sage); }
 .contact .section__title { color: #fff; margin-bottom: 20px; }
 .contact__desc { color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 100%; }
@@ -1647,4 +1647,8 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
     width: 100%;
     max-height: none;
   }
+}
+
+@media (min-width: 881px) {
+  .feature { padding-left: 48px; }
 }
