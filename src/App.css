@@ -272,8 +272,8 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
   .hero__copy, .hero__sub { margin-left: auto; margin-right: auto; }
   .hero__actions { justify-content: center; }
   .hero__visual { margin-bottom: -70px; }
-  .marketer-duo__photo { height: min(44vw, 300px); }
-  .marketer-duo__photo--back { margin-left: clamp(-50px, -7vw, -90px); }
+  .marketer-duo__photo { height: min(58vw, 380px); }
+  .marketer-duo__photo--back { margin-left: clamp(-65px, -9vw, -120px); }
 }
 
 @media (max-width: 520px) {
@@ -282,8 +282,8 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
   .hero__copy, .hero__sub { margin-left: 0; margin-right: 0; }
   .hero__actions { justify-content: flex-start; }
   .hero__visual { margin-bottom: -54px; }
-  .marketer-duo__photo { height: min(38vw, 240px); }
-  .marketer-duo__photo--back { margin-left: clamp(-40px, -6vw, -70px); }
+  .marketer-duo__photo { height: min(52vw, 300px); }
+  .marketer-duo__photo--back { margin-left: clamp(-55px, -8vw, -90px); }
   .marketer-duo__caption { font-size: 0.62rem; padding: 5px 8px; }
 }
 
