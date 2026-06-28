@@ -1358,9 +1358,9 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
 .contact__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; position: relative; z-index: 1; }
 .contact .eyebrow { color: var(--light-sage); }
 .contact .section__title { color: #fff; margin-bottom: 20px; }
-.contact__desc { color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 420px; }
+.contact__desc { color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 100%; }
 .contact__direct { display: flex; flex-direction: column; gap: 12px; }
-.contact__direct a { color: #fff; text-decoration: none; font-size: 1.15rem; font-weight: 700; width: fit-content; transition: color 0.2s; }
+.contact__direct a { color: #fff; text-decoration: none; font-size: 1.15rem; font-weight: 700; width: fit-content; transition: color 0.2s; word-break: break-all; }
 .contact__direct a:hover { color: var(--light-sage); }
 .contact__kakao { margin-top: 8px; color: var(--light-sage) !important; font-size: 1rem !important; }
 
@@ -1469,7 +1469,9 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
   .process__grid  { grid-template-columns: repeat(2, 1fr); }
   .cmp-grid        { grid-template-columns: 1fr; }
   .contact__inner { grid-template-columns: 1fr; gap: 40px; }
-  .form { grid-template-columns: 1fr; padding: 24px; }
+  .form { grid-template-columns: 1fr; padding: 24px; max-width: 100%; }
+  .contact__direct a { font-size: 0.95rem; }
+  .field input, .field textarea { font-size: 16px; } /* iOS 자동 확대 방지 */
   .footer__inner  { grid-template-columns: 1fr; gap: 28px; }
   .why__grid      { grid-template-columns: 1fr; }
   .pricing__grid  { grid-template-columns: 1fr; }
