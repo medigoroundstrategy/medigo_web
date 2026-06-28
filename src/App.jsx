@@ -1047,7 +1047,7 @@ function ContactSection() {
           <div className="contact__intro">
             <p className="eyebrow">CONTACT</p>
             <h2 className="section__title">병원 성장의 시작,<br />지금 상담받으세요.</h2>
-            <p className="contact__desc">남겨주신 내용을 확인하고 빠르게 연락드립니다.<br/>카카오톡 오픈 프로필로 문의해주시면<br/>더 빠르게 응답 가능합니다.</p>
+            <p className="contact__desc">남겨주신 내용을 확인하고 24시간 이내에 빠르게 연락드립니다.<br/>카카오톡 오픈 프로필로도 문의 가능합니다.</p>
             <div className="contact__direct">
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
               <a className="contact__kakao" href={SITE.kakaoOpenChat} target="_blank" rel="noreferrer">카카오톡 오픈채팅 →</a>
@@ -1063,7 +1063,7 @@ function ContactSection() {
           ) : (
             <form className="form" onSubmit={handleSubmit}>
               <label className="field">
-                <span>병원·담당자명</span>
+                <span>병원/담당자명</span>
                 <input name="name" type="text" required placeholder="홍길동" />
               </label>
               <label className="field">
