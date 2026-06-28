@@ -1344,7 +1344,7 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
   box-shadow: 0 12px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
-/* ── 문의 ── */
+/* ── 문의 (공통) ── */
 .contact {
   background: var(--deep); color: #fff; padding: clamp(70px,11vw,120px) 0;
   position: relative; overflow: hidden;
@@ -1355,15 +1355,30 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
   background: radial-gradient(circle, rgba(97,135,100,0.18) 0%, transparent 70%);
   filter: blur(50px); pointer-events: none;
 }
-.contact__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-.contact .eyebrow { color: var(--light-sage); text-align: center; }
-.contact .section__title { color: #fff; margin-bottom: 20px; text-align: center; }
-.contact__intro { width: 100%; text-align: center; }
+.contact__inner { position: relative; z-index: 1; margin: 0 auto; }
+.contact .eyebrow { color: var(--light-sage); }
+.contact .section__title { color: #fff; margin-bottom: 20px; }
 .contact__desc { color: rgba(255,255,255,0.75); margin-bottom: 32px; }
-.contact__direct { display: flex; flex-direction: column; gap: 12px; align-items: center; }
-.contact__direct a { color: #fff; text-decoration: none; font-size: 1.15rem; font-weight: 700; transition: color 0.2s; word-break: break-all; }
+.contact__direct { display: flex; flex-direction: column; gap: 12px; }
+.contact__direct a { color: #fff; text-decoration: none; font-weight: 700; transition: color 0.2s; word-break: break-all; }
 .contact__direct a:hover { color: var(--light-sage); }
 .contact__kakao { margin-top: 8px; color: var(--light-sage) !important; font-size: 1rem !important; }
+
+/* ── 문의 PC 전용 ── */
+@media (min-width: 881px) {
+  .contact__inner { display: flex; flex-direction: column; align-items: center; gap: 40px; max-width: 640px; }
+  .contact .eyebrow { text-align: center; }
+  .contact .section__title { text-align: center; }
+  .contact__intro { width: 100%; text-align: center; }
+  .contact__direct { align-items: center; }
+  .contact__direct a { font-size: 1.15rem; }
+}
+
+/* ── 문의 모바일 전용 ── */
+@media (max-width: 880px) {
+  .contact__inner { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  .contact__direct a { font-size: 0.95rem; }
+}
 
 /* ── 폼 ── */
 .form { background: #fff; border-radius: var(--radius); padding: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: 100%; }
@@ -1469,9 +1484,7 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
   .reviews__grid  { grid-template-columns: 1fr; }
   .process__grid  { grid-template-columns: repeat(2, 1fr); }
   .cmp-grid        { grid-template-columns: 1fr; }
-  .contact__inner { gap: 28px; }
   .form { grid-template-columns: 1fr; padding: 24px; max-width: 100%; }
-  .contact__direct a { font-size: 0.95rem; }
   .field input, .field textarea { font-size: 16px; } /* iOS 자동 확대 방지 */
   .footer__inner  { grid-template-columns: 1fr; gap: 28px; }
   .why__grid      { grid-template-columns: 1fr; }
