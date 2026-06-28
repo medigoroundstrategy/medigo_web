@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { SITE, STATS, REVIEWS, NAVER_PLANS, WEB_PLANS } from "./config";
 import logo from "./assets/logo_bg_rm.png";
 import marketerImg from "./assets/marketer.png";
+import marketer2Img from "./assets/marketer2.png";
 import otherCompanyImg from "./assets/other_company.jpg";
 import questionLogo from "./assets/question_logo.png";
 import searchBgImg from "./assets/medigo_bg/search_bg.png";
@@ -151,9 +152,8 @@ function Landing({ setView }) {
               <button className="btn btn--ghost" onClick={() => setView("naver")}>서비스 둘러보기</button>
             </div>
           </div>
-          <div className="hero__visual" aria-hidden="true">
-            <BossImage />
-            <span className="hero__visual-caption">메디고라운드 의대생 마케터 권태희</span>
+          <div className="hero__visual">
+            <MarketerDuo />
           </div>
         </div>
       </section>
@@ -376,8 +376,15 @@ function ServiceCard({ tag, title, desc, points, onClick }) {
 }
 
 // ─── 담당자 사진 ──────────────────────────────────────
-function BossImage() {
-  return <img src={marketerImg} className="subhero__boss" alt="메디고라운드 네이버 마케터" />;
+function MarketerDuo() {
+  return (
+    <div className="marketer-duo">
+      <img src={marketer2Img} className="marketer-duo__photo marketer-duo__photo--front" alt="예비의사 김해원" />
+      <img src={marketerImg}  className="marketer-duo__photo marketer-duo__photo--back"  alt="의대생 마케터 권태희" />
+      <span className="marketer-duo__caption marketer-duo__caption--left">예비의사 김해원</span>
+      <span className="marketer-duo__caption marketer-duo__caption--right">의대생 마케터 권태희</span>
+    </div>
+  );
 }
 
 // ─── 네이버 마케팅 페이지 ────────────────────────────
@@ -1047,7 +1054,7 @@ function ContactSection() {
           <div className="contact__intro">
             <p className="eyebrow">CONTACT</p>
             <h2 className="section__title">병원 성장의 시작,<br />지금 상담받으세요.</h2>
-            <p className="contact__desc">남겨주신 내용을 확인하고 24시간 이내에 빠르게 연락드립니다.<br/>카카오톡 오픈 프로필로도 문의 가능합니다.</p>
+            <p className="contact__desc">24시간 이내에 빠르게 연락드립니다.<br/>카카오톡 오픈 프로필로도 문의 가능합니다.</p>
             <div className="contact__direct">
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
               <a className="contact__kakao" href={SITE.kakaoOpenChat} target="_blank" rel="noreferrer">카카오톡 오픈채팅 →</a>
