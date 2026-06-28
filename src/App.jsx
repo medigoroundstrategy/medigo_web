@@ -1022,9 +1022,7 @@ function ContactSection() {
     const body = JSON.stringify({
       name:    fd.get("name"),
       phone:   fd.get("phone"),
-      email:   fd.get("email"),
       service: service,
-      message: fd.get("message"),
     });
     try {
       await fetch(SITE.formEndpoint, {
@@ -1076,22 +1074,10 @@ function ContactSection() {
                   onChange={(e) => setPhone(formatPhone(e.target.value))}
                 />
               </label>
-              <label className="field">
-                <span>이메일</span>
-                <input
-                  name="email" type="email" placeholder="name@example.com"
-                  pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                  title="올바른 이메일 형식을 입력해주세요 (예: name@example.com)"
-                />
-              </label>
               <div className="field field--full">
                 <span>관심 서비스</span>
                 <ServicePicker value={service} onChange={setService} />
               </div>
-              <label className="field field--full">
-                <span>문의 내용</span>
-                <textarea name="message" rows={4} placeholder="현재 상황과 궁금한 점을 적어주세요." />
-              </label>
               <button className="btn btn--primary form__submit" type="submit" disabled={status === "sending"}>
                 {status === "sending" ? "보내는 중..." : "상담 신청하기"}
               </button>
