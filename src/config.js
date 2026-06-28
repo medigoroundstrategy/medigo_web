@@ -9,8 +9,8 @@ export const SITE = {
   kakaoOpenChat: "https://open.kakao.com/me/medigo_marketing",
   instagram: "@medigo_round",
 
-  // ─── Formspree ────────────────────────────────────
-  formspreeEndpoint: "https://formspree.io/f/xjgqyoyp",
+  // ─── Google Apps Script (구글 시트 저장) ──────────
+  formEndpoint: "https://script.google.com/macros/s/AKfycbyympPVbNyI0FAbnP58OB3mepYt89rC72vAGbB9Sd4JtjE0qflQcH1K0BOTYS6SLDw0/exec",
 
   // ─── 회사 정보 (푸터) ─────────────────────────────
   companyName: "메디고라운드",

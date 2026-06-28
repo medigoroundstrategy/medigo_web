@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { useForm, ValidationError } from "@formspree/react";
 import { SITE, STATS, REVIEWS, NAVER_PLANS, WEB_PLANS } from "./config";
 import logo from "./assets/logo_bg_rm.png";
 import marketerImg from "./assets/marketer.png";
@@ -1005,8 +1004,34 @@ function ServicePicker({ value, onChange }) {
 
 // ─── 문의 섹션 ─────────────────────────────────────────
 function ContactSection() {
-  const [state, handleSubmit] = useForm("xjgqyoyp");
+  const [status, setStatus] = useState("idle");
   const [service, setService] = useState("네이버 마케팅");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus("sending");
+    const fd = new FormData(e.target);
+    const body = JSON.stringify({
+      name:    fd.get("name"),
+      phone:   fd.get("phone"),
+      email:   fd.get("email"),
+      service: service,
+      message: fd.get("message"),
+    });
+    try {
+      await fetch(SITE.formEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body,
+        mode: "no-cors",
+      });
+      setStatus("ok");
+      e.target.reset();
+      setService("네이버 마케팅");
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <section className="contact" id="contact">
@@ -1024,7 +1049,7 @@ function ContactSection() {
         </Reveal>
 
         <Reveal direction="right">
-          {state.succeeded ? (
+          {status === "ok" ? (
             <div className="form form--success">
               <p className="form__msg form__msg--ok">문의가 접수되었습니다. 빠르게 연락드리겠습니다.</p>
             </div>
@@ -1041,21 +1066,19 @@ function ContactSection() {
               <label className="field">
                 <span>이메일</span>
                 <input name="email" type="email" placeholder="name@example.com" />
-                <ValidationError field="email" errors={state.errors} className="form__field-err" />
               </label>
               <div className="field field--full">
                 <span>관심 서비스</span>
                 <ServicePicker value={service} onChange={setService} />
-                <input type="hidden" name="service" value={service} />
               </div>
               <label className="field field--full">
                 <span>문의 내용</span>
                 <textarea name="message" rows={4} placeholder="현재 상황과 궁금한 점을 적어주세요." />
               </label>
-              <button className="btn btn--primary form__submit" type="submit" disabled={state.submitting}>
-                {state.submitting ? "보내는 중..." : "상담 신청하기"}
+              <button className="btn btn--primary form__submit" type="submit" disabled={status === "sending"}>
+                {status === "sending" ? "보내는 중..." : "상담 신청하기"}
               </button>
-              {state.errors && state.errors.length > 0 && (
+              {status === "error" && (
                 <p className="form__msg form__msg--err">전송에 실패했습니다. 카카오톡 오픈채팅으로 직접 문의해 주세요.</p>
               )}
             </form>
