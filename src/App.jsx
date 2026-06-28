@@ -381,7 +381,7 @@ function MarketerDuo() {
     <div className="marketer-duo">
       <img src={marketer2Img} className="marketer-duo__photo marketer-duo__photo--front" alt="예비의사 김해원" />
       <img src={marketerImg}  className="marketer-duo__photo marketer-duo__photo--back"  alt="의대생 마케터 권태희" />
-      <span className="marketer-duo__caption marketer-duo__caption--left">예비의사 김해원</span>
+      <span className="marketer-duo__caption marketer-duo__caption--left">예비의사 마케터 김해원</span>
       <span className="marketer-duo__caption marketer-duo__caption--right">의대생 마케터 권태희</span>
     </div>
   );
