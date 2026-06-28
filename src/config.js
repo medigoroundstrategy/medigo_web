@@ -10,7 +10,7 @@ export const SITE = {
   instagram: "@medigo_round",
 
   // ─── Google Apps Script (구글 시트 저장) ──────────
-  formEndpoint: "https://script.google.com/macros/s/AKfycbwG9dyJy3n2MJiHQu1mUipFHlTLmT3I3GDzI7IztB8TlBIjVQ3TelbZyYO9e47bTjOa/exec",
+  formEndpoint: "https://script.google.com/macros/s/AKfycbw6PYHJvMnOJjB3U1joFsMgz_ybq4Wy40QTRMxHEDrOQ19VN6RT6cfj6HQRnacX5q2j/exec",
 
   // ─── 회사 정보 (푸터) ─────────────────────────────
   companyName: "메디고라운드",
