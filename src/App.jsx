@@ -459,16 +459,16 @@ function NaverPage() {
       <section style={{
         backgroundImage: [
           'linear-gradient(to bottom, white 0%, rgba(255,255,255,0.85) 5%, transparent 14%, transparent 86%, rgba(255,255,255,0.85) 95%, white 100%)',
-          'linear-gradient(to right, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.76) 22%, rgba(255,255,255,0.95) 48%, white 64%)',
+          'linear-gradient(to right, white 0%, rgba(255,255,255,0.55) 18%, transparent 38%, transparent 62%, rgba(255,255,255,0.55) 82%, white 100%)',
           `url(${sturdyBgImg})`
         ].join(', '),
-        backgroundPosition: 'left top, left top, left center',
-        backgroundSize: '100% 100%, 100% 100%, auto 100%',
+        backgroundPosition: 'left top, left top, center center',
+        backgroundSize: '100% 100%, 100% 100%, cover',
         backgroundRepeat: 'no-repeat',
       }}>
         <div className="container feature-list">
           <Reveal direction="up">
-            <h2 className="section__title">메디고라운드가 직접 하는 것들</h2>
+            <h2 className="section__title center">메디고라운드가 직접 하는 것들</h2>
           </Reveal>
           {features.map(([no, title, desc, dir]) => (
             <Reveal key={no} direction={dir}>
