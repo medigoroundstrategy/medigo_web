@@ -131,6 +131,15 @@ function CountUp({ end, suffix }) {
 
 // ─── 랜딩 ────────────────────────────────────────────
 function Landing({ setView }) {
+  const problemFindings = [
+    [
+      "01",
+      <>진짜 의료계 출신이 하는 마케팅이<br className="br-mo" />없었습니다.</>,
+      <>대부분이 그냥 대행사였습니다. 실제로 연락해보면<br className="br-mo" />병원·법률·부동산 마케팅을 함께<br className="br-mo" />진행하고 있었습니다.</>,
+    ],
+    ["02", "의학을 모르니, 글도 형편없었습니다.", "진짜 '마케팅'이라 부를 만한 콘텐츠가 거의 없었습니다."],
+    ["03", "형편없는 글조차 하청을 맡기고 있었습니다.", "대부분 일반인 블로거에게 의학 원고를 떠넘깁니다.\n키워드만 전달받아 원고를 씁니다."],
+  ];
   return (
     <>
       <section className="hero">
@@ -165,12 +174,11 @@ function Landing({ setView }) {
             <div className="problem-intro__panel">
               <p className="eyebrow problem-intro__eyebrow">병원 마케팅의 현실</p>
               <h2 className="section__title problem-intro__title">
-                "의사들의 돈은 눈먼 돈"이라는 말,<br />
+                "의사들의 돈은 눈먼 돈"<br className="br-mo" />이라는 말,<br />
                 <span>들어보셨나요?</span>
               </h2>
               <p className="problem-intro__desc">
-                의학을 모르는 사람들이 원장님께 말도 안 되는 비용을 청구하고, 정작 품질은 형편없습니다.<br />
-                직접 업체들에게 연락해봤습니다. 결과는 충격적이었습니다.
+                의학을 모르는 사람들이<br className="br-mo" />원장님께 말도 안 되는 비용을 청구하고,<br className="br-mo" />정작 품질은 형편없습니다.<br /><br className="br-mo" />직접 업체들에게 연락해봤습니다.<br className="br-mo" />결과는 충격적이었습니다.
               </p>
             </div>
           </Reveal>
@@ -188,11 +196,7 @@ function Landing({ setView }) {
                 <p className="problem__quote">"이 글, 누가 쓰나요?"</p>
                 <p className="problem__evidence-label">실제 크몽 '병원 마케팅' 검색 결과</p>
                 <div className="problem__findings">
-                  {[
-                    ["01", "진짜 의료계 출신이 하는 마케팅이 없었습니다.", "대부분이 그냥 대행사였습니다. \n실제로 연락해보면 병원·법률·부동산 마케팅을 함께 진행하고 있었습니다."],
-                    ["02", "의학을 모르니, 글도 형편없었습니다.", "진짜 '마케팅'이라 부를 만한 콘텐츠가 거의 없었습니다."],
-                    ["03", "형편없는 글조차 하청을 맡기고 있었습니다.", "대부분 일반인 블로거에게 의학 원고를 떠넘깁니다.\n키워드만 전달받아 원고를 씁니다."],
-                  ].map(([no, title, desc]) => (
+                  {problemFindings.map(([no, title, desc]) => (
                     <div key={no} className="problem__finding">
                       <span className="problem__no">{no}</span>
                       <div>
